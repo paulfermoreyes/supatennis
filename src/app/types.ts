@@ -29,3 +29,45 @@ export interface ModificationImpact {
   balanceShift: number; // positive = shift towards head, negative = towards handle
   swingweightShift: number;
 }
+
+export type PlayerClass = 'A' | 'B' | 'C' | 'D';
+export type Gender = 'Male' | 'Female';
+export type MatchStatus = 'Scheduled' | 'Postponed' | 'Completed';
+
+export interface Player {
+  id: string;
+  name: string;
+  gender: Gender;
+  class: PlayerClass;
+}
+
+export interface MatchLineDefinition {
+  id: string;
+  name: string;              // e.g. "Class B Male Singles #1"
+  type: 'Singles' | 'Doubles';
+  genderReq: 'Male' | 'Female' | 'Mixed';
+  classReq?: PlayerClass;    // Required baseline class
+}
+
+export interface MatchFormat {
+  id: string;
+  name: string;              // e.g. "Club Custom (2S/4D)", "USTA 18+ (2S/3D)"
+  description: string;
+  lines: MatchLineDefinition[];
+}
+
+export interface LineupSlot {
+  lineId: string;            // Links to MatchLineDefinition.id
+  playerIds: string[];       // 1 item for Singles, 2 items for Doubles
+}
+
+export interface ScheduledMatch {
+  id: string;
+  team1: string;
+  team2: string;
+  date: string;              // ISO string or YYYY-MM-DD
+  status: MatchStatus;
+  formatId: string;          // Links to MatchFormat
+  lineup: LineupSlot[];      // Player assignments
+}
+
