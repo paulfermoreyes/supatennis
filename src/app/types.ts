@@ -34,11 +34,29 @@ export type PlayerClass = 'A' | 'B' | 'C' | 'D';
 export type Gender = 'Male' | 'Female';
 export type MatchStatus = 'Scheduled' | 'Postponed' | 'Completed';
 
+export interface User {
+  id: string;
+  username: string;
+  name: string;
+  gender: Gender;
+  class: PlayerClass;
+  password?: string;
+  created_at?: string;
+}
+
+export interface Tournament {
+  id: string;
+  name: string;
+  created_by: string; // User ID
+  created_at?: string;
+}
+
 export interface Player {
   id: string;
   name: string;
   gender: Gender;
   class: PlayerClass;
+  tournamentId?: string; // Optional scoping to a tournament
 }
 
 export interface MatchLineDefinition {
@@ -58,7 +76,7 @@ export interface MatchFormat {
 
 export interface LineupSlot {
   lineId: string;            // Links to MatchLineDefinition.id
-  playerIds: string[];       // 1 item for Singles, 2 items for Doubles
+  playerIds: string[];       // 1 item for Singles, 2 items for Doubles or tags/manual names
 }
 
 export interface ScheduledMatch {
@@ -68,6 +86,12 @@ export interface ScheduledMatch {
   date: string;              // ISO string or YYYY-MM-DD
   status: MatchStatus;
   formatId: string;          // Links to MatchFormat
-  lineup: LineupSlot[];      // Player assignments
+  lineup: LineupSlot[];      // Team 1 player assignments
+  lineup2?: LineupSlot[];     // Team 2 player assignments
+  tournamentId?: string;     // Optional scoping to a tournament
+  team1Rep?: string;         // User ID of Team 1 representative
+  team2Rep?: string;         // User ID of Team 2 representative
 }
+
+
 
