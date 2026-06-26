@@ -6,7 +6,7 @@ const MOCK_DB: Record<string, AffiliateProduct> = {
     id: 'tungsten-tape',
     name: 'High-Density Tungsten Tape',
     description: 'Pre-cut, lead-free tungsten adhesive strips. Designed for precise hoop modifications at 12, 3, or 9 o\'clock to increase swingweight and torsional stability.',
-    price: '$14.99',
+    price: '₱825.00',
     url: 'https://tennis-warehouse.com/TungstenTape?aff=racketanalyzer',
     category: 'hoop'
   },
@@ -14,7 +14,7 @@ const MOCK_DB: Record<string, AffiliateProduct> = {
     id: 'leather-grip',
     name: 'Premium Tan Leather Grip',
     description: 'High-quality calfskin leather grip. Adds roughly 12-15g to the handle compared to synthetic grips, shifting the balance headlight while enhancing bevel bevel-feel.',
-    price: '$22.00',
+    price: '₱1,210.00',
     url: 'https://tennis-warehouse.com/LeatherGrip?aff=racketanalyzer',
     category: 'handle'
   },
@@ -22,7 +22,7 @@ const MOCK_DB: Record<string, AffiliateProduct> = {
     id: 'tungsten-putty',
     name: 'High-Density Tungsten Putty',
     description: 'Moldable tungsten putty designed for insertion into the racquet trap door inside the butt cap. Ideal for adding tail weight to custom-match specs.',
-    price: '$12.50',
+    price: '₱687.50',
     url: 'https://tennis-warehouse.com/TungstenPutty?aff=racketanalyzer',
     category: 'buttcap'
   }
